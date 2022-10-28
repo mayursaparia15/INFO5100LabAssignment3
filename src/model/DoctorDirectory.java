@@ -21,4 +21,13 @@ public class DoctorDirectory {
     public List<Doctor> getDoctorDirectory() {
         return doctorDirectory;
     }
+    
+    public int addDoctor(Doctor d) {
+        doctorDirectory.add(d);
+        return 1;
+    }
+    
+    public void DeleteDoctor(Doctor d){
+        doctorDirectory.remove(d);
+    }
 }

@@ -13,6 +13,27 @@ public class Doctor {
     private String doctorName;
     private String category;
     private int hospitalId;
+    private String hospitalName;
+    
+    private static int count = 0;
+
+    @Override
+    public String toString() {
+        return doctorName; //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Doctor() {
+        count++;
+        doctorId = count;
+    }
+
+    public String getHospitalName() {
+        return hospitalName;
+    }
+
+    public void setHospitalName(String hospitalName) {
+        this.hospitalName = hospitalName;
+    }
 
     public int getDoctorId() {
         return doctorId;

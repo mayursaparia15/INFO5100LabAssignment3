@@ -155,7 +155,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnSystemAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSystemAdminActionPerformed
 
-        SystemAdminWorkAreaJPanel sawajp = new SystemAdminWorkAreaJPanel(userProcessContainer, patientDirectory);
+        SystemAdminWorkAreaJPanel sawajp = new SystemAdminWorkAreaJPanel(userProcessContainer,hospitalDirectory,doctorDirectory, patientDirectory,encounterHistory);
         userProcessContainer.add("SystemAdminWorkAreaJPanel",sawajp);
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);

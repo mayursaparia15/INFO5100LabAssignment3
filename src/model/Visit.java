@@ -15,11 +15,29 @@ public class Visit {
     private int patientId;
     private String patientName;
     private int hospitalId;
+    private String hospitalName;
     private int doctorId;
-    private String temperature;
-    private String bloodpressure;
-    private String pulserate;
+    private String doctorName;
+    private int temperature;
+    private int bloodpressure;
+    private int pulserate;
     private Date appointmentDate;
+
+    public String getHospitalName() {
+        return hospitalName;
+    }
+
+    public void setHospitalName(String hospitalName) {
+        this.hospitalName = hospitalName;
+    }
+
+    public String getDoctorName() {
+        return doctorName;
+    }
+
+    public void setDoctorName(String doctorName) {
+        this.doctorName = doctorName;
+    }
 
     public int getVisitId() {
         return visitId;
@@ -61,27 +79,27 @@ public class Visit {
         this.doctorId = doctorId;
     }
 
-    public String getTemperature() {
+    public int getTemperature() {
         return temperature;
     }
 
-    public void setTemperature(String temperature) {
+    public void setTemperature(int temperature) {
         this.temperature = temperature;
     }
 
-    public String getBloodpressure() {
+    public int getBloodpressure() {
         return bloodpressure;
     }
 
-    public void setBloodpressure(String bloodpressure) {
+    public void setBloodpressure(int bloodpressure) {
         this.bloodpressure = bloodpressure;
     }
 
-    public String getPulserate() {
+    public int getPulserate() {
         return pulserate;
     }
 
-    public void setPulserate(String pulserate) {
+    public void setPulserate(int pulserate) {
         this.pulserate = pulserate;
     }
 

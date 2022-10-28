@@ -14,6 +14,18 @@ public class Hospital {
     private String city;
     private String postalCode;
 
+    private static int count = 0;
+
+    @Override
+    public String toString() {
+        return hospitalName; //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Hospital() {
+        count++;
+        hospitalID = count;
+    }
+    
     public int getHospitalID() {
         return hospitalID;
     }

@@ -21,6 +21,18 @@ public class HospitalDirectory {
     public List<Hospital> getHospitalDirectory() {
         return hospitalDirectory;
     }
+    
+    public int addHospital(Hospital h) {
+        hospitalDirectory.add(h);
+        return 1;
+    }
+    
+    public void DeleteHospital(Hospital h){
+        hospitalDirectory.remove(h);
+    }
+    
+   
+     
 
     
 }
