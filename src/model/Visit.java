@@ -14,14 +14,33 @@ public class Visit {
     private int visitId;
     private int patientId;
     private String patientName;
-    private int hospitalId;
+    private String city;
     private String hospitalName;
-    private int doctorId;
     private String doctorName;
     private int temperature;
     private int bloodpressure;
     private int pulserate;
-    private Date appointmentDate;
+    private String appointmentDate;
+    
+    private static int count = 0;
+
+    @Override
+    public String toString() {
+        return patientName; //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Visit() {
+        count++;
+        visitId = count;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
 
     public String getHospitalName() {
         return hospitalName;
@@ -63,22 +82,6 @@ public class Visit {
         this.patientName = patientName;
     }
 
-    public int getHospitalId() {
-        return hospitalId;
-    }
-
-    public void setHospitalId(int hospitalId) {
-        this.hospitalId = hospitalId;
-    }
-
-    public int getDoctorId() {
-        return doctorId;
-    }
-
-    public void setDoctorId(int doctorId) {
-        this.doctorId = doctorId;
-    }
-
     public int getTemperature() {
         return temperature;
     }
@@ -103,11 +106,11 @@ public class Visit {
         this.pulserate = pulserate;
     }
 
-    public Date getAppointmentDate() {
+    public String getAppointmentDate() {
         return appointmentDate;
     }
 
-    public void setAppointmentDate(Date appointmentDate) {
+    public void setAppointmentDate(String appointmentDate) {
         this.appointmentDate = appointmentDate;
     }
 }

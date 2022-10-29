@@ -178,14 +178,14 @@ public class MainJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnHospitalAdminActionPerformed
 
     private void btnDoctorPortalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoctorPortalActionPerformed
-        DoctorWorkAreaJPanel dwajp = new DoctorWorkAreaJPanel(userProcessContainer, doctorDirectory);
+        DoctorWorkAreaJPanel dwajp = new DoctorWorkAreaJPanel(userProcessContainer, patientDirectory,encounterHistory,doctorDirectory,hospitalDirectory);
         userProcessContainer.add("DoctorWorkAreaJPanel", dwajp);
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnDoctorPortalActionPerformed
 
     private void btnPatientPortalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientPortalActionPerformed
-        PatientWorkAreaJPanel pwajp = new PatientWorkAreaJPanel(userProcessContainer, patientDirectory);
+        PatientWorkAreaJPanel pwajp = new PatientWorkAreaJPanel(userProcessContainer, patientDirectory,encounterHistory,doctorDirectory,hospitalDirectory);
         userProcessContainer.add("PatientWorkAreaJPanel", pwajp);
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);

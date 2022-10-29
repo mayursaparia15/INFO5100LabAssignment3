@@ -4,8 +4,13 @@
  */
 package ui.DoctorRole;
 
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 import model.DoctorDirectory;
+import model.EncounterHistory;
+import model.HospitalDirectory;
+import model.PatientDirectory;
+import ui.PatientRole.LoginPageJPanel;
 
 /**
  *
@@ -13,12 +18,18 @@ import model.DoctorDirectory;
  */
 public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
+    private PatientDirectory patientDirectory;
+    private EncounterHistory encounterHistory;
     private DoctorDirectory doctorDirectory;
+    private HospitalDirectory hospitalDirectory;
 
-    public DoctorWorkAreaJPanel(JPanel userProcessContainer, DoctorDirectory doctorDirectory) {
+    public DoctorWorkAreaJPanel(JPanel userProcessContainer, PatientDirectory patientDirectory,EncounterHistory encounterHistory,DoctorDirectory doctorDirectory,HospitalDirectory hospitalDirectory) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
+        this.patientDirectory = patientDirectory;
+        this.encounterHistory = encounterHistory;
         this.doctorDirectory = doctorDirectory;
+        this.hospitalDirectory = hospitalDirectory;
     }
     
 
@@ -32,28 +43,72 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         lblTitle = new javax.swing.JLabel();
+        btnLogin = new javax.swing.JButton();
+        btnHist = new javax.swing.JButton();
 
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Doctor Portal");
+
+        btnLogin.setText("Login");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
+
+        btnHist.setText("Patient Encounter History");
+        btnHist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHistActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnHist, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(134, 134, 134))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(lblTitle)
-                .addContainerGap(554, Short.MAX_VALUE))
+                .addGap(53, 53, 53)
+                .addComponent(btnLogin)
+                .addGap(18, 18, 18)
+                .addComponent(btnHist)
+                .addContainerGap(433, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        // TODO add your handling code here:
+        DoctorLoginPageJPanel dlpjp = new DoctorLoginPageJPanel(userProcessContainer,patientDirectory,encounterHistory,doctorDirectory,hospitalDirectory);
+        userProcessContainer.add("DoctorLoginPageJPanel",dlpjp);
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnHistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistActionPerformed
+        // TODO add your handling code here:
+        PatientEncounterHistoryJPanel pehjp = new PatientEncounterHistoryJPanel(userProcessContainer,patientDirectory,encounterHistory,doctorDirectory,hospitalDirectory);
+        userProcessContainer.add("PatientEncounterHistoryJPanel",pehjp);
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnHistActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnHist;
+    private javax.swing.JButton btnLogin;
     private javax.swing.JLabel lblTitle;
     // End of variables declaration//GEN-END:variables
 }

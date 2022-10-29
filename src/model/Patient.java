@@ -14,6 +14,18 @@ public class Patient {
     private long Phone;
     private String email;
     private String address;
+    
+    private static int count = 0;
+
+    @Override
+    public String toString() {
+        return patientName; //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Patient() {
+        count++;
+        patientId = count;
+    }
 
     public int getPatientId() {
         return patientId;

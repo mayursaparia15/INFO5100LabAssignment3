@@ -21,4 +21,13 @@ public class EncounterHistory {
     public List<Visit> getEncounterHistory() {
         return encounterHistory;
     }
+    
+    public int addHistory(Visit v) {
+        encounterHistory.add(v);
+        return 1;
+    }
+    
+    public void DeleteHistory(Visit v){
+        encounterHistory.remove(v);
+    }
 }

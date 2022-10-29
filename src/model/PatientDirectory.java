@@ -22,6 +22,13 @@ public class PatientDirectory {
         return patientDirectory;
     }
     
+    public int addPatient(Patient p) {
+        patientDirectory.add(p);
+        return 1;
+    }
     
+    public void DeletePatient(Patient p){
+        patientDirectory.remove(p);
+    }
      
 }
