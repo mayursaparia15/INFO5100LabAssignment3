@@ -41,7 +41,9 @@ public class AddVitalsJPanel extends javax.swing.JPanel {
         this.doctorDirectory = doctorDirectory;
         this.hospitalDirectory = hospitalDirectory;
         this.doctorName = name;
+        //commit
         
+         
         lblName.setText(name);
         cmbPatient.removeAllItems();
         int i = 0;
