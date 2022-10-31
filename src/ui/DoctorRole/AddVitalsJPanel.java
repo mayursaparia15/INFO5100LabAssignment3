@@ -4,6 +4,7 @@
  */
 package ui.DoctorRole;
 
+import java.util.Iterator;
 import java.util.List;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -64,7 +65,6 @@ public class AddVitalsJPanel extends javax.swing.JPanel {
             }
            
         }
-        
         
         
         
@@ -281,6 +281,23 @@ public class AddVitalsJPanel extends javax.swing.JPanel {
                 
             }
         }
+        
+
+
+//        Iterator<Visit> iter = encounterHistory.getEncounterHistory().iterator();
+//
+//            while (iter.hasNext()) {
+//                Visit v = iter.next();
+//
+//                if (v.getAppointmentDate().equals(selected))
+//                {
+//                    visitId = v.getVisitId();
+//                    patientId = v.getPatientId();
+//                    hospitalName = v.getHospitalName();
+//                    city = v.getCity();
+//                    encounterHistory.DeleteHistory(v);
+//                }
+//            }
         Visit v = new Visit();
         v.setVisitId(visitId);
         v.setPatientId(patientId);

@@ -164,14 +164,14 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnCommunityAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCommunityAdminActionPerformed
 
-        CommunityAdminWorkAreaJPanel cawajp = new CommunityAdminWorkAreaJPanel(userProcessContainer, hospitalDirectory);
+        CommunityAdminWorkAreaJPanel cawajp = new CommunityAdminWorkAreaJPanel(userProcessContainer,hospitalDirectory,doctorDirectory, patientDirectory,encounterHistory);
         userProcessContainer.add("CommunityAdminWorkAreaJPanel", cawajp);
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnCommunityAdminActionPerformed
 
     private void btnHospitalAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHospitalAdminActionPerformed
-        HospitalAdminWorkAreaJPanel hawajp = new HospitalAdminWorkAreaJPanel(userProcessContainer, doctorDirectory);
+        HospitalAdminWorkAreaJPanel hawajp = new HospitalAdminWorkAreaJPanel(userProcessContainer, doctorDirectory,hospitalDirectory);
         userProcessContainer.add("HospitalAdminWorkAreaJPanel", hawajp);
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);

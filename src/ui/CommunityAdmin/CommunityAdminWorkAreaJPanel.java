@@ -4,8 +4,12 @@
  */
 package ui.CommunityAdmin;
 
+import java.awt.CardLayout;
 import javax.swing.JPanel;
+import model.DoctorDirectory;
+import model.EncounterHistory;
 import model.HospitalDirectory;
+import model.PatientDirectory;
 
 /**
  *
@@ -15,11 +19,17 @@ public class CommunityAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
     private HospitalDirectory hospitalDirectory;
+    private DoctorDirectory doctorDirectory;
+    private PatientDirectory patientDirectory;
+    private EncounterHistory encounterHistory;
 
-    public CommunityAdminWorkAreaJPanel(JPanel userProcessContainer, HospitalDirectory hospitalDirectory) {
+    public CommunityAdminWorkAreaJPanel(JPanel userProcessContainer,HospitalDirectory hospitalDirectory,DoctorDirectory doctorDirectory, PatientDirectory patientDirectory, EncounterHistory encounterHistory) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.hospitalDirectory = hospitalDirectory;
+        this.doctorDirectory = doctorDirectory;
+        this.patientDirectory = patientDirectory;
+        this.encounterHistory = encounterHistory;
     }
 
     /**
@@ -32,28 +42,72 @@ public class CommunityAdminWorkAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         lblTitle = new javax.swing.JLabel();
+        btnModifyHospitals = new javax.swing.JButton();
+        btnModifyDoctors = new javax.swing.JButton();
 
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Community Administration Portal");
+
+        btnModifyHospitals.setText("Modify Hospitals");
+        btnModifyHospitals.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModifyHospitalsActionPerformed(evt);
+            }
+        });
+
+        btnModifyDoctors.setText("Modify Doctors");
+        btnModifyDoctors.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModifyDoctorsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnModifyHospitals, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnModifyDoctors, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(159, 159, 159))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(lblTitle)
-                .addContainerGap(554, Short.MAX_VALUE))
+                .addGap(73, 73, 73)
+                .addComponent(btnModifyHospitals)
+                .addGap(18, 18, 18)
+                .addComponent(btnModifyDoctors)
+                .addContainerGap(413, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnModifyHospitalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyHospitalsActionPerformed
+        // TODO add your handling code here:
+        CommunityModifyHospitalsJPanel cmhjp = new CommunityModifyHospitalsJPanel(userProcessContainer,doctorDirectory,hospitalDirectory);
+        userProcessContainer.add("CommunityModifyHospitalsJPanel",cmhjp);
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnModifyHospitalsActionPerformed
+
+    private void btnModifyDoctorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyDoctorsActionPerformed
+        // TODO add your handling code here:
+        CommunityModifyDoctorsJPanel cmdjp = new CommunityModifyDoctorsJPanel(userProcessContainer,doctorDirectory,hospitalDirectory);
+        userProcessContainer.add("CommunityModifyDoctorsJPanel",cmdjp);
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnModifyDoctorsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnModifyDoctors;
+    private javax.swing.JButton btnModifyHospitals;
     private javax.swing.JLabel lblTitle;
     // End of variables declaration//GEN-END:variables
 }

@@ -45,6 +45,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         lblTitle = new javax.swing.JLabel();
         btnModifyHospitals = new javax.swing.JButton();
         btnModifyDoctors = new javax.swing.JButton();
+        btnModifyPerson = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(650, 600));
 
@@ -66,6 +67,13 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnModifyPerson.setText("Modify Person");
+        btnModifyPerson.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModifyPersonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -75,7 +83,8 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnModifyHospitals, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnModifyDoctors, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnModifyDoctors, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnModifyPerson, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(162, 162, 162))
         );
         layout.setVerticalGroup(
@@ -87,13 +96,15 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(btnModifyHospitals)
                 .addGap(18, 18, 18)
                 .addComponent(btnModifyDoctors)
-                .addContainerGap(415, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnModifyPerson)
+                .addContainerGap(372, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnModifyHospitalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyHospitalsActionPerformed
         // TODO add your handling code here:
-        ModifyHospitalsJPanel mhjp = new ModifyHospitalsJPanel(userProcessContainer,hospitalDirectory);
+        ModifyHospitalsJPanel mhjp = new ModifyHospitalsJPanel(userProcessContainer,doctorDirectory,hospitalDirectory);
         userProcessContainer.add("ModifyHospitalsJPanel",mhjp);
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -107,10 +118,19 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnModifyDoctorsActionPerformed
 
+    private void btnModifyPersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyPersonActionPerformed
+        // TODO add your handling code here:
+        ModifyPersonsJPanel mpjp = new ModifyPersonsJPanel(userProcessContainer,patientDirectory);
+        userProcessContainer.add("ModifyPersonsJPanel",mpjp);
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnModifyPersonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnModifyDoctors;
     private javax.swing.JButton btnModifyHospitals;
+    private javax.swing.JButton btnModifyPerson;
     private javax.swing.JLabel lblTitle;
     // End of variables declaration//GEN-END:variables
 }

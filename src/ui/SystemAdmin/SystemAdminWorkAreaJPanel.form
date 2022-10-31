@@ -27,6 +27,7 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="btnModifyHospitals" max="32767" attributes="0"/>
                   <Component id="btnModifyDoctors" max="32767" attributes="0"/>
+                  <Component id="btnModifyPerson" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
           </Group>
@@ -41,7 +42,9 @@
               <Component id="btnModifyHospitals" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnModifyDoctors" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="415" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnModifyPerson" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="372" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -70,6 +73,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModifyDoctorsActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnModifyPerson">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Modify Person"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModifyPersonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

@@ -4,8 +4,10 @@
  */
 package ui.HospitalAdmin;
 
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 import model.DoctorDirectory;
+import model.HospitalDirectory;
 
 /**
  *
@@ -14,8 +16,9 @@ import model.DoctorDirectory;
 public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private DoctorDirectory doctorDirectory;
+    private HospitalDirectory hospitalDirectory;
 
-    public HospitalAdminWorkAreaJPanel(JPanel userProcessContainer, DoctorDirectory doctorDirectory) {
+    public HospitalAdminWorkAreaJPanel(JPanel userProcessContainer, DoctorDirectory doctorDirectory,HospitalDirectory hospitalDirectory) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.doctorDirectory = doctorDirectory;
@@ -33,28 +36,51 @@ public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         lblTitle = new javax.swing.JLabel();
+        btnModifyDoctors = new javax.swing.JButton();
 
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Hospital Administration Portal");
+
+        btnModifyDoctors.setText("Modify Doctors");
+        btnModifyDoctors.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModifyDoctorsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnModifyDoctors)
+                .addGap(176, 176, 176))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(lblTitle)
-                .addContainerGap(554, Short.MAX_VALUE))
+                .addGap(61, 61, 61)
+                .addComponent(btnModifyDoctors)
+                .addContainerGap(468, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnModifyDoctorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyDoctorsActionPerformed
+        // TODO add your handling code here:
+        HospitalModifyDoctorsJPanel hmdjp = new HospitalModifyDoctorsJPanel(userProcessContainer,doctorDirectory,hospitalDirectory);
+        userProcessContainer.add("HospitalModifyDoctorsJPanel",hmdjp);
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnModifyDoctorsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnModifyDoctors;
     private javax.swing.JLabel lblTitle;
     // End of variables declaration//GEN-END:variables
 }

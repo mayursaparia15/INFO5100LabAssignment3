@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package ui.SystemAdmin;
+package ui.CommunityAdmin;
 
 import java.awt.CardLayout;
 import java.util.Date;
@@ -20,14 +20,14 @@ import model.HospitalDirectory;
  *
  * @author Com
  */
-public class ModifyHospitalsJPanel extends javax.swing.JPanel {
+public class CommunityModifyHospitalsJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private HospitalDirectory hospitalDirectory;
     private DoctorDirectory doctorDirectory;
     /**
      * Creates new form ModifyHospitals
      */
-    public ModifyHospitalsJPanel(JPanel userProcessContainer,DoctorDirectory doctorDirectory,HospitalDirectory hospitalDirectory) {
+    public CommunityModifyHospitalsJPanel(JPanel userProcessContainer,DoctorDirectory doctorDirectory,HospitalDirectory hospitalDirectory) {
         this.userProcessContainer = userProcessContainer;
         this.doctorDirectory = doctorDirectory;
         this.hospitalDirectory = hospitalDirectory;
@@ -76,7 +76,6 @@ public class ModifyHospitalsJPanel extends javax.swing.JPanel {
         txtPostal = new javax.swing.JTextField();
         btnUpdate = new javax.swing.JButton();
         btnView = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
 
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -127,13 +126,6 @@ public class ModifyHospitalsJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnDelete.setText("Delete Hospital");
-        btnDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -162,16 +154,14 @@ public class ModifyHospitalsJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 169, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnAdd)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnUpdate)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnView)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnDelete)))
+                        .addComponent(btnView)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -185,8 +175,7 @@ public class ModifyHospitalsJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd)
                     .addComponent(btnUpdate)
-                    .addComponent(btnView)
-                    .addComponent(btnDelete))
+                    .addComponent(btnView))
                 .addGap(63, 63, 63)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -208,7 +197,7 @@ public class ModifyHospitalsJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        AddHospitalJPanel ahjp = new AddHospitalJPanel(userProcessContainer,hospitalDirectory);
+        CommunityAddHospitalJPanel ahjp = new CommunityAddHospitalJPanel(userProcessContainer,hospitalDirectory);
         userProcessContainer.add("AddHospitalJPanel",ahjp);
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -339,40 +328,9 @@ public class ModifyHospitalsJPanel extends javax.swing.JPanel {
         txtCity.setText(selectedHospital.getCity());
         txtPostal.setText(selectedHospital.getPostalCode());
     }//GEN-LAST:event_btnViewActionPerformed
-
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        // TODO add your handling code here:
-        int selectedRowIndex = tblHospitals.getSelectedRow();
-        
-        if(selectedRowIndex<0){
-            JOptionPane.showMessageDialog(this, "Please select a row to Remove Hospital");
-            return;
-        }
-        
-        DefaultTableModel  model = (DefaultTableModel) tblHospitals.getModel();
-        Hospital selectedHospital = (Hospital) model.getValueAt(selectedRowIndex, 0);
-        for(Doctor d : doctorDirectory.getDoctorDirectory()){
-            if(d.getHospitalName().equals(selectedHospital.getHospitalName()))
-            {
-                
-                doctorDirectory.DeleteDoctor(d);
-            }
-           
-        }
-        hospitalDirectory.DeleteHospital(selectedHospital);
-        
-        JOptionPane.showMessageDialog(this, "Hospital Removed!!");
-        populateTable();
-        
-        txtName.setText("");
-        txtId.setText("");
-        txtCity.setText("");
-        txtPostal.setText("");
-    }//GEN-LAST:event_btnDeleteActionPerformed
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnView;
     private javax.swing.JLabel jLabel2;
