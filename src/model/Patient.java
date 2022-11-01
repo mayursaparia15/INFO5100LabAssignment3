@@ -28,7 +28,7 @@ public class Patient {
     }
 
     public int getPatientId() {
-        return patientId;
+        return patientId; //To keep count of the total numbers of patients
     }
 
     public void setPatientId(int patientId) {
