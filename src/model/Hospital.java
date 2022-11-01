@@ -23,7 +23,7 @@ public class Hospital {
 
     public Hospital() {
         count++;
-        hospitalID = count;
+        hospitalID = count; //To increment the id of the patient whenever a new patient registers
     }
     
     public int getHospitalID() {
